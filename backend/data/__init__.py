@@ -1,0 +1,1 @@
+"""Static mock data used until database integration is added."""

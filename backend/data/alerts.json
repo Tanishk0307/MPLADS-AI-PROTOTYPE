@@ -1,0 +1,82 @@
+[
+  {
+    "id": "alert-001",
+    "project_id": "b2ed597a-20bb-47f9-a7f2-b275d0347e1b",
+    "type": "cost_overrun",
+    "severity": "CRITICAL",
+    "title": "Solar Street Lights Installation",
+    "description": "Cost inflated significantly over sanctioned amount and execution is 80% delayed.",
+    "metric_value": 30.0,
+    "detected_at": "2026-08-29T08:00:00Z",
+    "resolved": false,
+    "risk_score": 75,
+    "reasons": [
+      "Cost inflated by 30.0% over sanctioned budget",
+      "Execution delay of 80.0% (120 days overdue)"
+    ]
+  },
+  {
+    "id": "alert-002",
+    "project_id": "71d2a52a-3176-4806-9007-21c3b7ec7a17",
+    "type": "cost_overrun",
+    "severity": "CRITICAL",
+    "title": "Road Widening NH-9",
+    "description": "Expenditure is 23.2% above sanctioned budget with severe timeline overrun.",
+    "metric_value": 23.24,
+    "detected_at": "2026-08-29T11:30:00Z",
+    "resolved": false,
+    "risk_score": 75,
+    "reasons": [
+      "Cost inflated by 23.2% over sanctioned budget",
+      "Execution delay of 36.1% (130 days overdue)"
+    ]
+  },
+  {
+    "id": "alert-003",
+    "project_id": "project-002",
+    "type": "cost_overrun",
+    "severity": "CRITICAL",
+    "title": "Loni High-Mast Lighting & CCTV Network",
+    "description": "Cost overrun detected with 61.1% project delay in Loni block.",
+    "metric_value": 29.23,
+    "detected_at": "2026-08-29T07:20:00Z",
+    "resolved": false,
+    "risk_score": 75,
+    "reasons": [
+      "Cost inflated by 29.2% over sanctioned budget",
+      "Execution delay of 61.1% (110 days overdue)"
+    ]
+  },
+  {
+    "id": "alert-004",
+    "project_id": "0785c3d5-30d1-49d5-8762-0d923689f89d",
+    "type": "fund_stagnation",
+    "severity": "MEDIUM",
+    "title": "Deep Tube-Well Installation Ward 12",
+    "description": "Stalled status with only 21% utilization and 72% timeline delay.",
+    "metric_value": 21.32,
+    "detected_at": "2026-08-28T09:15:00Z",
+    "resolved": false,
+    "risk_score": 55,
+    "reasons": [
+      "Execution delay of 72.2% (130 days overdue)",
+      "Fund stagnation: only 21% utilized, project stalled"
+    ]
+  },
+  {
+    "id": "alert-005",
+    "project_id": "project-003",
+    "type": "fund_stagnation",
+    "severity": "MEDIUM",
+    "title": "Jal Nigam Community RO Water Plant",
+    "description": "The stalled project has low fund utilization and a significant execution delay.",
+    "metric_value": 26.39,
+    "detected_at": "2026-08-28T14:00:00Z",
+    "resolved": false,
+    "risk_score": 55,
+    "reasons": [
+      "Execution delay of 70.8% (170 days overdue)",
+      "Fund stagnation: only 26% utilized, project stalled"
+    ]
+  }
+]

@@ -1,0 +1,163 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;700;800&family=Outfit:wght@500;700;800;900&display=swap');
+@import 'maplibre-gl/dist/maplibre-gl.css';
+
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  font-family: 'Outfit', 'Inter', system-ui, sans-serif;
+}
+
+/* Custom scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+::-webkit-scrollbar-track {
+  background: transparent;
+}
+::-webkit-scrollbar-thumb {
+  background: #cbd5e1;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #94a3b8;
+}
+
+/* Clash of Clans & Arcade Pin Markers */
+.maplibre-marker-wrap {
+  cursor: pointer;
+  pointer-events: auto;
+  user-select: none;
+}
+
+.maplibre-marker-inner {
+  transition: transform 0.18s cubic-bezier(0.34, 1.56, 0.64, 1);
+  transform-origin: center bottom;
+}
+
+.maplibre-marker-wrap:hover .maplibre-marker-inner {
+  transform: scale(1.32) translateY(-6px);
+  z-index: 100 !important;
+}
+
+/* Red Pulsing Beacon (Critical Risk Boss Raid) */
+.pulse-beacon-critical {
+  box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.9);
+  animation: pulse-critical 1.6s infinite;
+}
+
+/* Yellow Pulsing Beacon (Medium Risk Warning) */
+.pulse-beacon-yellow {
+  box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.9);
+  animation: pulse-yellow 1.8s infinite;
+}
+
+/* Green Pulsing Beacon (Normal Fortress) */
+.pulse-beacon-normal {
+  box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.85);
+  animation: pulse-normal 2.2s infinite;
+}
+
+@keyframes pulse-critical {
+  0% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0.95), 0 0 18px rgba(239, 68, 68, 0.8);
+  }
+  70% {
+    box-shadow: 0 0 0 18px rgba(239, 68, 68, 0), 0 0 28px rgba(239, 68, 68, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(239, 68, 68, 0), 0 0 0 rgba(239, 68, 68, 0);
+  }
+}
+
+@keyframes pulse-yellow {
+  0% {
+    box-shadow: 0 0 0 0 rgba(234, 179, 8, 0.95), 0 0 16px rgba(234, 179, 8, 0.75);
+  }
+  70% {
+    box-shadow: 0 0 0 16px rgba(234, 179, 8, 0), 0 0 24px rgba(234, 179, 8, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(234, 179, 8, 0), 0 0 0 rgba(234, 179, 8, 0);
+  }
+}
+
+@keyframes pulse-normal {
+  0% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0.85), 0 0 12px rgba(16, 185, 129, 0.5);
+  }
+  70% {
+    box-shadow: 0 0 0 14px rgba(16, 185, 129, 0), 0 0 18px rgba(16, 185, 129, 0);
+  }
+  100% {
+    box-shadow: 0 0 0 0 rgba(16, 185, 129, 0), 0 0 0 rgba(16, 185, 129, 0);
+  }
+}
+
+/* Radar Sweep Line */
+@keyframes radar-sweep {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-radar-sweep {
+  animation: radar-sweep 4s linear infinite;
+  transform-origin: center center;
+}
+
+/* Slow Spin for 3D Compass */
+@keyframes spin-slow {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.animate-spin-slow {
+  animation: spin-slow 12s linear infinite;
+}
+
+/* Float Animation for Legendary Crown / Trophy */
+@keyframes float-badge {
+  0%, 100% {
+    transform: translateY(0px) scale(1);
+  }
+  50% {
+    transform: translateY(-4px) scale(1.08);
+  }
+}
+
+.animate-float-badge {
+  animation: float-badge 2s ease-in-out infinite;
+}
+
+/* MapLibre custom popup reset */
+.maplibregl-popup-content {
+  background: transparent !important;
+  box-shadow: none !important;
+  padding: 0 !important;
+  border-radius: 12px;
+}
+
+.maplibregl-popup-tip {
+  display: none !important;
+}
+
+/* High-DPI canvas crisp rendering */
+.maplibregl-canvas {
+  image-rendering: -webkit-optimize-contrast;
+  image-rendering: crisp-edges;
+}

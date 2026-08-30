@@ -1,0 +1,58 @@
+========================================================================
+  🏛️ MPLADS AI SURVEILLANCE & CITIZEN GROUND TRUTH PORTAL
+  District Administration Ghaziabad, Uttar Pradesh
+========================================================================
+
+HOW TO RUN THIS PROJECT (QUICK & EASY):
+------------------------------------------------------------------------
+Option 1: 1-Click Launch (Recommended for Windows)
+  1. Simply double-click on "start.bat"
+  2. It will automatically check dependencies and open the live portal 
+     in your web browser at: http://localhost:5173
+
+Option 2: Terminal / Manual Launch (Windows / Mac / Linux)
+  1. Open Terminal in this folder.
+  2. Install dependencies:
+       npm install
+       pip install -r backend/requirements.txt
+  3. Run the development server:
+       npm run dev
+
+------------------------------------------------------------------------
+🌐 ACCESS URLS:
+------------------------------------------------------------------------
+  * Web Dashboard:  http://localhost:5173
+  * Backend API:    http://127.0.0.1:8000
+  * Swagger Docs:   http://127.0.0.1:8000/docs
+
+------------------------------------------------------------------------
+👥 OFFICIAL LOGIN ROLES TO TRY:
+------------------------------------------------------------------------
+  1. Member of Parliament (MP):
+     - Email: mp.ghaziabad@sansad.nic.in
+     - Feature: Order "Inspection from MP ⭐" & Dispatch Statutory Notices
+  2. State Nodal Authority (SNA):
+     - Email: sna.mplads@up.gov.in
+     - Feature: State-level vigilance & inspection directives
+  3. District Authority (District Magistrate / DM):
+     - Email: dm.ghaziabad@up.gov.in
+     - Feature: Mandatory on-ground site inspections as per higher authority orders
+  4. Ministry of Statistics & Programme Implementation (MoSPI):
+     - Email: mospi.mplads@nic.in
+     - Feature: Central regulatory compliance & fund allocation tracking
+  5. Implementing Agency (PWD / Jal Nigam / Panchayat):
+     - Email: pwd.ghaziabad@up.gov.in
+     - Feature: Physical execution & expenditure verification
+  6. Public Citizen View (Guest):
+     - Email: citizen.ghaziabad@gmail.com
+     - Feature: Jan Sunwai photo proof submissions & audit trail
+
+------------------------------------------------------------------------
+✨ KEY HIGHLIGHTS:
+------------------------------------------------------------------------
+  * 🌐 Full Hindi & English bilingual toggle in the header.
+  * 🛰️ 4K Satellite GIS Interactive Heatmap with 3D terrain angles.
+  * ⭐ "Inspection from MP" priority vigilance marking.
+  * 📋 DM On-Site Inspection recording & compliance certification.
+  * 🤖 AI Surveillance Assistant (Floating bot icon at bottom-right).
+========================================================================
