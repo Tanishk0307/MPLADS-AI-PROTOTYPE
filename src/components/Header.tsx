@@ -134,7 +134,7 @@ export function Header({
             </button>
 
             {/* Reports & Audits Tab - Semi-transparent and strictly non-clickable for Citizens */}
-            {user.role === 'Guest' ? (
+            {user?.role === 'Guest' ? (
               <div
                 title={t.viewOnlyBadge + ' (Official Clearance Required)'}
                 className="px-2.5 lg:px-3 py-1.5 rounded-lg text-xs font-bold flex items-center gap-1.5 opacity-35 bg-slate-200/60 text-slate-400 cursor-not-allowed select-none border border-dashed border-slate-300"
@@ -193,8 +193,8 @@ export function Header({
               className="flex items-center gap-1.5 bg-slate-100 text-slate-700 text-xs px-2.5 sm:px-3 py-1.5 rounded-full font-semibold border hover:bg-slate-200 transition-colors cursor-pointer"
             >
               <span className="h-2 w-2 rounded-full bg-emerald-500" />
-              <span className="hidden sm:inline">{roleLabels[user.role]}</span>
-              <span className="sm:hidden">{user.role}</span>
+              <span className="hidden sm:inline">{user?.role ? roleLabels[user.role] : 'Guest'}</span>
+              <span className="sm:hidden">{user?.role || 'Guest'}</span>
             </button>
 
             {menuOpen && (
@@ -202,8 +202,8 @@ export function Header({
                 <div className="fixed inset-0 z-40" onClick={() => setMenuOpen(false)} />
                 <div className="absolute right-0 mt-2 w-56 bg-white rounded-xl shadow-xl border border-slate-200 z-50 overflow-hidden animate-fade-in-up">
                   <div className="p-3 border-b border-slate-100 bg-slate-50">
-                    <p className="text-xs font-semibold text-slate-800">{user.email}</p>
-                    <p className="text-[11px] text-slate-400 font-medium">{roleLabels[user.role]}</p>
+                    <p className="text-xs font-semibold text-slate-800">{user?.email || 'citizen@ghaziabad.gov.in'}</p>
+                    <p className="text-[11px] text-slate-400 font-medium">{user?.role ? roleLabels[user.role] : ''}</p>
                   </div>
                   <button
                     onClick={() => {

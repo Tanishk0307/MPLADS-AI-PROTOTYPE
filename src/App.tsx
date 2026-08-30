@@ -469,6 +469,10 @@ export default function App() {
     );
   }
 
+  if (!user) {
+    return <LoginScreen onLogin={setUser} />;
+  }
+
   const handleNavigate = (key: string) => {
     setActiveNav(key as 'dashboard' | 'risk' | 'agencies' | 'proofs' | 'reports');
     setSidebarOpen(false);

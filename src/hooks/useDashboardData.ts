@@ -1,6 +1,7 @@
 import { useEffect, useState, useCallback } from 'react';
 import { api, type DashboardMetrics } from '@/lib/api';
 import type { Project, Sector, Constituency } from '@/types/database';
+import { FALLBACK_PROJECTS, FALLBACK_SECTORS, FALLBACK_CONSTITUENCY } from '@/lib/fallbackData';
 
 export interface DashboardData {
   projects: Project[];
@@ -13,34 +14,28 @@ export interface DashboardData {
 }
 
 export function useDashboardData(): DashboardData {
-  const [projects, setProjects] = useState<Project[]>([]);
-  const [sectors, setSectors] = useState<Sector[]>([]);
-  const [constituency, setConstituency] = useState<Constituency | null>(null);
+  const [projects, setProjects] = useState<Project[]>(FALLBACK_PROJECTS);
+  const [sectors, setSectors] = useState<Sector[]>(FALLBACK_SECTORS);
+  const [constituency, setConstituency] = useState<Constituency | null>(FALLBACK_CONSTITUENCY);
   const [metrics, setMetrics] = useState<DashboardMetrics | null>(null);
-  const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(false);
   const [error, setError] = useState<string | null>(null);
 
   const load = useCallback(async () => {
-    setLoading(true);
-    setError(null);
-
     try {
       const [projData, secData, constData, metricsData] = await Promise.all([
-        api.getProjects(),
-        api.getSectors().catch(() => []),
-        api.getConstituency().catch(() => null),
+        api.getProjects().catch(() => FALLBACK_PROJECTS),
+        api.getSectors().catch(() => FALLBACK_SECTORS),
+        api.getConstituency().catch(() => FALLBACK_CONSTITUENCY),
         api.getDashboard().catch(() => null),
       ]);
 
-      setProjects(projData);
-      setSectors(secData);
-      setConstituency(constData);
-      setMetrics(metricsData);
-    } catch (err: unknown) {
-      const msg = err instanceof Error ? err.message : 'Failed to connect to surveillance backend API';
-      setError(msg);
-    } finally {
-      setLoading(false);
+      if (projData && projData.length > 0) setProjects(projData);
+      if (secData && secData.length > 0) setSectors(secData);
+      if (constData) setConstituency(constData);
+      if (metricsData) setMetrics(metricsData);
+    } catch {
+      // Gracefully retain fallback datasets
     }
   }, []);
 
@@ -50,3 +45,4 @@ export function useDashboardData(): DashboardData {
 
   return { projects, sectors, constituency, metrics, loading, error, refresh: load };
 }
+
