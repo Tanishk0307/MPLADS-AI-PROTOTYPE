@@ -27,4 +27,15 @@ export default defineConfig({
   optimizeDeps: {
     exclude: ['lucide-react', 'maplibre-gl'],
   },
+  build: {
+    chunkSizeWarningLimit: 1600,
+    rollupOptions: {
+      output: {
+        manualChunks: {
+          vendor: ['react', 'react-dom'],
+          maplibre: ['maplibre-gl'],
+        },
+      },
+    },
+  },
 });
